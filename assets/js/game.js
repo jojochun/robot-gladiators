@@ -45,9 +45,11 @@ while (playerInfo.health > 0 && enemy.health > 0) {
     } else {
       window.alert(enemy.name + ' still has ' + enemy.health + ' health left.');
     }
-
-    // remove players's health by subtracting the amount set in the enemy.attack variable
+// player gets attacked first
+  } else {
     var damage = randomNumber(enemy.attack - 3, enemy.attack);
+
+    // remove player's health by subtracting the amount we set in the damage variable
 
     playerInfo.health = Math.max(0, playerInfo.health - damage);
     
@@ -64,6 +66,10 @@ while (playerInfo.health > 0 && enemy.health > 0) {
       window.alert(playerInfo.name + ' still has ' + playerInfo.health + ' health left.');
     }
   }
+}
+// switch turn order for next round
+isPlayerTurn = !isPlayerTurn;
+}
 };
 
 // function to start a new game
